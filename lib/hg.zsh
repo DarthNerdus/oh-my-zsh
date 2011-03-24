@@ -1,7 +1,7 @@
 # get the name of the branch we are on
 function hg_prompt_info() {
   ref=$(hg branch 2> /dev/null) || return
-  echo "$ZSH_THEME_HG_PROMPT_PREFIX${ref}$(hg_prompt_status)$ZSH_THEME_HG_PROMPT_SUFFIX"
+  echo "$ZSH_THEME_HG_PROMPT_PREFIX${ref}$(parse_hg_dirty)$ZSH_THEME_HG_PROMPT_SUFFIX"
 }
 
 parse_hg_dirty () {
