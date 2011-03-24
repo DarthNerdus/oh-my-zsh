@@ -41,10 +41,10 @@ function extract() {
       (*.tar.gz|*.tgz) tar xvzf "$1" ;;
       (*.tar.bz2|*.tbz|*.tbz2) tar xvjf "$1" ;;
       (*.tar.xz|*.txz) tar xvJf "$1" ;;
-      # (*.tar.xz|*.txz) xzcat "$1" | tar xvf - ;;
-      (*.tar.lzma|*.tlz) tar --lzma -xvf "$1" ;;
-      # (*.tar.lzma|*.tlz) lzcat "$1" | tar xvf - ;;
-      (*.tar) tar xvf "$1" ;;
+      (*.tar.xz|*.txz) xzcat "$1" | tar xvf - ;;
+      # (*.tar.lzma|*.tlz) tar --lzma -xvf "$1" ;;
+      (*.tar.lzma|*.tlz) lzcat "$1" | tar xvf - ;;
+      # (*.tar) tar xvf "$1" ;;
       (*.gz) gunzip "$1" ;;
       (*.bz2) bunzip2 "$1" ;;
       (*.xz) unxz "$1" ;;
