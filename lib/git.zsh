@@ -36,7 +36,7 @@ git_remote_status() {
 # get the status of the working tree
 # Checks if there are commits ahead from remote
 function git_prompt_ahead() {
-  if $(echo "$(git log origin/master..HEAD 2> /dev/null)" | grep '^commit' &> /dev/null); then
+  if $(echo "$(git log origin/$(current_branch)..HEAD 2> /dev/null)" | grep '^commit' &> /dev/null); then
     echo "$ZSH_THEME_GIT_PROMPT_AHEAD"
   fi
 }
