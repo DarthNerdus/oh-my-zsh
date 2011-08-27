@@ -2,7 +2,11 @@
 #          FILE:  extract.plugin.zsh
 #   DESCRIPTION:  oh-my-zsh plugin file.
 #        AUTHOR:  Sorin Ionescu (sorin.ionescu@gmail.com)
+<<<<<<< HEAD
 #       VERSION:  1.0.0
+=======
+#       VERSION:  1.0.1
+>>>>>>> 9f46eafae0bed7df50a0004fca5d25539425ff85
 # ------------------------------------------------------------------------------
 
 
@@ -40,11 +44,21 @@ function extract() {
     case "$1" in
       (*.tar.gz|*.tgz) tar xvzf "$1" ;;
       (*.tar.bz2|*.tbz|*.tbz2) tar xvjf "$1" ;;
+<<<<<<< HEAD
       (*.tar.xz|*.txz) tar xvJf "$1" ;;
       (*.tar.xz|*.txz) xzcat "$1" | tar xvf - ;;
       # (*.tar.lzma|*.tlz) tar --lzma -xvf "$1" ;;
       (*.tar.lzma|*.tlz) lzcat "$1" | tar xvf - ;;
       # (*.tar) tar xvf "$1" ;;
+=======
+      (*.tar.xz|*.txz) tar --xz --help &> /dev/null \
+        && tar --xz -xvf "$1" \
+        || xzcat "$1" | tar xvf - ;;
+      (*.tar.zma|*.tlz) tar --lzma --help &> /dev/null \
+        && tar --lzma -xvf "$1" \
+        || lzcat "$1" | tar xvf - ;;
+      (*.tar) tar xvf "$1" ;;
+>>>>>>> 9f46eafae0bed7df50a0004fca5d25539425ff85
       (*.gz) gunzip "$1" ;;
       (*.bz2) bunzip2 "$1" ;;
       (*.xz) unxz "$1" ;;
